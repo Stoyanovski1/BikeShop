@@ -32,18 +32,19 @@ let products = [{
 
 for (let val of products) {
     document.getElementById("products").innerHTML +=
-        `<div class="card" style="width: 18rem; margin: 0 auto;">
+        `<div class="p-2 mb-3" style="width: 18rem; margin: 0 auto;">
   <img src="${val.image}" class="card-img-top" width="200" height="200" alt="${val.name}">
   <div class="card-body">
     <h5 class="card-title">${val.name}</h5>
-    <p class="card-text">${val.price}$</p>
-    <input type="submit" value="Add to cart" class="addToCart">
-    <input type="submit" value="Buy now" class="buyNow" style="float:right">
+    <p class="card-text">Price: €${val.price}</p>
+    <button type="submit" value="Add to cart" class="btn btn-success addToCart"  style="width:130px">Add to cart</button> 
+
+
+    
     </div>
   </div>
 </div>`
-}
-
+} { /* <button type="submit" value="Buy now" class="btn btn-success buyNow" style="float:right">Buy now</button> */ }
 let cart = [];
 
 let addBtns = document.getElementsByClassName("addToCart");
@@ -66,9 +67,20 @@ function addToCart(obj) {
     total()
 }
 
+// let btn = document.getElementsByClassName("btnNumber");
+
+// function addPlusOne() {
+//     for (let i = 0; i < btn.length; i++) {
+//         btn[i].addEventListener(click, function() {
+//             cart[i].qtty++;
+//             document.getElementsByClassName("qtty")[i].innerHTML = cart[i].qtty;
+//         })
+//     }
+// }
+
 // function for the sum the price and the qtty!
 function total() {
-    let total = 0;
+    let total = 0
     for (let val of cart) {
         total = total + (val.price * val.qtty);
     }
@@ -124,19 +136,19 @@ function createCartInHTML() {
 //<p class="minus">-</p>
 //<p class="plus">+</p>
 
-particlesJS("particles-js", { "particles": { "number": { "value": 80, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#ffffff" }, "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000000" }, "polygon": { "nb_sides": 5 }, "image": { "src": "img/github.svg", "width": 100, "height": 100 } }, "opacity": { "value": 0.5, "random": false, "anim": { "enable": false, "speed": 1, "opacity_min": 0.1, "sync": false } }, "size": { "value": 3, "random": true, "anim": { "enable": false, "speed": 40, "size_min": 0.1, "sync": false } }, "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 6, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false, "attract": { "enable": false, "rotateX": 600, "rotateY": 1200 } } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": false, "mode": "repulse" }, "onclick": { "enable": false, "mode": "push" }, "resize": true }, "modes": { "grab": { "distance": 400, "line_linked": { "opacity": 1 } }, "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 }, "repulse": { "distance": 200, "duration": 0.4 }, "push": { "particles_nb": 4 }, "remove": { "particles_nb": 2 } } }, "retina_detect": true });
-var count_particles, stats, update;
-stats = new Stats;
-stats.setMode(0);
-stats.domElement.style.position = 'absolute';
-stats.domElement.style.left = '0px';
-stats.domElement.style.top = '0px';
-document.body.appendChild(stats.domElement);
-count_particles = document.querySelector('.js-count-particles');
-update = function() {
-    stats.begin();
-    stats.end();
-    if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) { count_particles.innerText = window.pJSDom[0].pJS.particles.array.length; }
-    requestAnimationFrame(update);
-};
-requestAnimationFrame(update);;
+// particlesJS("particles-js", { "particles": { "number": { "value": 80, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#ffffff" }, "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000000" }, "polygon": { "nb_sides": 5 }, "image": { "src": "img/github.svg", "width": 100, "height": 100 } }, "opacity": { "value": 0.5, "random": false, "anim": { "enable": false, "speed": 1, "opacity_min": 0.1, "sync": false } }, "size": { "value": 3, "random": true, "anim": { "enable": false, "speed": 40, "size_min": 0.1, "sync": false } }, "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 6, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false, "attract": { "enable": false, "rotateX": 600, "rotateY": 1200 } } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": false, "mode": "repulse" }, "onclick": { "enable": false, "mode": "push" }, "resize": true }, "modes": { "grab": { "distance": 400, "line_linked": { "opacity": 1 } }, "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 }, "repulse": { "distance": 200, "duration": 0.4 }, "push": { "particles_nb": 4 }, "remove": { "particles_nb": 2 } } }, "retina_detect": true });
+// var count_particles, stats, update;
+// stats = new Stats;
+// stats.setMode(0);
+// stats.domElement.style.position = 'absolute';
+// stats.domElement.style.left = '0px';
+// stats.domElement.style.top = '0px';
+// document.body.appendChild(stats.domElement);
+// count_particles = document.querySelector('.js-count-particles');
+// update = function() {
+//     stats.begin();
+//     stats.end();
+//     if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) { count_particles.innerText = window.pJSDom[0].pJS.particles.array.length; }
+//     requestAnimationFrame(update);
+// };
+// requestAnimationFrame(update);;
